@@ -1,0 +1,170 @@
+/* ===== Base ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: "kern" 1;
+}
+
+::selection {
+  background: #C9974F;
+  color: #FBF8F2;
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #B98A3E;
+  outline-offset: 2px;
+}
+
+/* ===== Style filter chips ===== */
+.chip {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1.5px solid #DED0B4;
+  background: #FBF8F2;
+  color: rgba(27, 23, 18, 0.65);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.chip:hover {
+  border-color: #B98A3E;
+  color: #1B1712;
+  background: #F3EBDD;
+}
+
+.chip-active {
+  background: #1B1712;
+  border-color: #1B1712;
+  color: #F3EBDD;
+}
+
+.chip-active:hover {
+  background: #2A2420;
+  border-color: #2A2420;
+  color: #F3EBDD;
+}
+
+/* ===== Result cards ===== */
+.result-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: #F3EBDD;
+  border: 1px solid #DED0B4;
+  border-radius: 0.65rem;
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.1s ease;
+  animation: cardIn 0.35s ease backwards;
+}
+
+.result-card:hover {
+  border-color: #B98A3E;
+}
+
+.result-card:active {
+  transform: scale(0.98);
+}
+
+.result-name {
+  font-weight: 600;
+  font-size: 1rem;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+.result-copy-icon {
+  flex-shrink: 0;
+  color: rgba(27, 23, 18, 0.35);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== FAQ ===== */
+.faq-item {
+  padding: 1.25rem 1.5rem;
+}
+
+.faq-summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-summary::after {
+  content: "+";
+  font-size: 1.25rem;
+  color: #B98A3E;
+  font-weight: 400;
+  margin-left: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] .faq-summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  margin-top: 0.85rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgba(27, 23, 18, 0.6);
+}
+
+/* ===== Ad placeholder slots =====
+   Replace the inner content of .ad-slot with your AdSense <ins> unit
+   once approved. The dashed box keeps layout stable so nothing shifts
+   when real ads are added. Safe to delete any .ad-slot div you don't want. */
+.ad-slot {
+  border: 1px dashed #DED0B4;
+  border-radius: 0.65rem;
+  background: rgba(237, 226, 206, 0.4);
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(27, 23, 18, 0.3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .result-card {
+    animation: none;
+  }
+}
